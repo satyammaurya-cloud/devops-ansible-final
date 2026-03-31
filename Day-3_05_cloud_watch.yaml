@@ -21,7 +21,7 @@
                     {
                       "file_path": "/var/log/*",
                       "log_group_name": "LOG-FROM-EC2",
-                      "log_stream_name": " {instance_id}",
+                      "log_stream_name": "{instance_id}",
                       "retention_in_days": 1
                     }
                   ]
