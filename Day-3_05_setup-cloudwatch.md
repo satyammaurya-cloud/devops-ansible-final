@@ -28,11 +28,13 @@ The agent is configured with the following parameters:
 
 ### 📋 How to Use
 
-1.  **Clone this repository** or copy the `playbook.yml` content.
+1.  **Clone this repository** or copy the `cloud_watch.yaml` content.
 2.  **Update target ec2 server IP into your inventory** file:
-    ```ini
+    ```yaml
     [dev]
-    your-instance-ip ansible_user=ec2-user ansible_ssh_private_key_file=~/your-key.pem
+    173.121.34.21
+    [test]
+    173.123.36.23
     ```
 3.  **Run the playbook:**
     ```bash
