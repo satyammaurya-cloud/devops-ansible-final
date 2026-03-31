@@ -29,9 +29,9 @@ The agent is configured with the following parameters:
 ### 📋 How to Use
 
 1.  **Clone this repository** or copy the `playbook.yml` content.
-2.  **Update your inventory** file:
+2.  **Update target ec2 server IP into your inventory** file:
     ```ini
-    [ec2_instances]
+    [dev]
     your-instance-ip ansible_user=ec2-user ansible_ssh_private_key_file=~/your-key.pem
     ```
 3.  **Run the playbook:**
