@@ -36,3 +36,7 @@
     - name: Check CloudWatch agent status
       command: /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
       register: cw_agent_status
+
+    - name: Display Agent Status
+      debug:
+        var: cw_agent_status.stdout  # Makes the status visible in your terminal
