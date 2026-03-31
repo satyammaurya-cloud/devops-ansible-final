@@ -38,7 +38,7 @@ The agent is configured with the following parameters:
     ```
 3.  **Run the playbook:**
     ```bash
-    ansible-playbook -i hosts playbook.yml
+    ansible-playbook -i inventory playbook.yml
     ```
 
 ### ✅ Verification
