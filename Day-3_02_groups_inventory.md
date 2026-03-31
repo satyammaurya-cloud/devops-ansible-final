@@ -1,13 +1,14 @@
---example groups inventory
-
-
+### Example groups inventory
+Dafault host path: `vi /etc/ansible/hosts`
+```yaml
 [dev]
 173.121.34.21
-
 [test]
 173.123.36.23
+```
 
-example if hosts 'dev' below example reference 
+- example if hosts `dev` below example reference 
+```yaml
 ---
 - name: first playbook
   hosts: dev
@@ -21,9 +22,9 @@ example if hosts 'dev' below example reference
       service:
         name: httpd
         state: started
-
-example if host 'all' means 'dev+test'
-
+```
+- example if host `all` means 'dev+test'
+```yaml
 ---
 - name: first playbook
   hosts: all
@@ -37,3 +38,4 @@ example if host 'all' means 'dev+test'
       service:
         name: httpd
         state: started
+```
