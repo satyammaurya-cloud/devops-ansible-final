@@ -88,19 +88,28 @@ To automatically group instances based on tags, update your `aws_ec2.yml`:
 plugin: amazon.aws.aws_ec2
 regions:
   - us-east-1
+
+# 1. Update filters to include both tags
+filters:
+  tag:Name:
+    - dev
+ #  - test   # if you want use two group just uncomment it 
+
+# 2. Automatically create groups based on the Name of tag -> tag_Name_dev and tag_Name_test
 keyed_groups:
   - key: tags.Name
     prefix: tag_Name_
     separator: ""
+
+# 3. (Optional) Create custom user-friendly group names
 groups:
   development: "dev” in (tags|list)"
-filters:
-  tag:Name:
-    - dev
+#  testing: "test” in (tags|list)"
 ```
 > Test with group
 ```bash
-ansible tag_Name_dev -m ping
+ansible tag_Name_dev -m ping     # Ping only dev nodes
+ansible tag_Name_test -m ping    # Ping only test nodes
 ```
 
 - **Result:** This creates a group called `tag_Name_dev` and a custom group called development.
