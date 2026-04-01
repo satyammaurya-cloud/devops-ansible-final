@@ -128,6 +128,7 @@ ansible-galaxy
 3. **amazon.aws from ansible-galaxy Collection**
 ```yaml   
 - Installs the specific `aws_ec2` plugin needed to identify and manage AWS resources.
+- Automatically detect and group your active AWS servers so you don't have to maintain a manual list of IP addresses.
 - Example: It allows you to use `plugin: amazon.aws.aws_ec2` in your config.
 
 ansible-galaxy collection install amazon.aws
