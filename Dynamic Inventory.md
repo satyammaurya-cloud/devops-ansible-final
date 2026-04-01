@@ -107,12 +107,11 @@ filters:
 ---
 ## Tools and Their Functions
 
-1. **python3-pip & boto3**
+1. **boto3 (The SDK)**
 ```yaml   
-- Installs the official AWS Python library that allows Ansible to "talk" to the AWS API.
-- When you run a dynamic inventory command, Ansible uses Boto3 in the background to "talk" to AWS.
-  It asks AWS for a list of instances, their IP addresses, and their tags. Without Boto3, Ansible cannot authenticate or
-  retrieve data from your AWS account.
+- AWS SDK for python used to interact with AWS service.
+- When the Ansible plugin wants to find your servers, it tells boto3 to make the actual API calls to AWS to
+  fetch real-time data like IP addresses and their tags. 
 - Example: It retrieves the Private IP of your instance.
 
 pip3 install boto3
@@ -125,9 +124,10 @@ pip3 install boto3
 
 ansible-galaxy
 ```   
-3. **amazon.aws from ansible-galaxy Collection**
+3. **amazon.aws (The Plugin)**
 ```yaml   
-- Installs the specific `aws_ec2` plugin needed to identify and manage AWS resources.
+- Provides the aws_ec2 inventory plugin. This plugin reads a configuration file (e.g., inventory.aws_ec2.yml)
+  and determines which AWS regions or tags to scan.
 - Automatically detect and group your active AWS servers so you don't have to maintain a manual list of IP addresses.
 - Example: It allows you to use `plugin: amazon.aws.aws_ec2` in your config.
 
