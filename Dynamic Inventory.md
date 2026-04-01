@@ -93,7 +93,7 @@ keyed_groups:
     prefix: tag_Name_
     separator: ""
 groups:
-  development: "'dev' in tags.Name"
+  development: "dev” in (tags|list)"
 filters:
   tag:Name:
     - dev
