@@ -32,8 +32,10 @@ ansible-galaxy collection install amazon.aws
     ```bash
     [defaults]
     host_key_checking = False
-    enable_plugins = amazon.aws.aws_ec2
     inventory = ./aws_ec2.yml
+    
+    [inventory]
+    enable_plugins = amazon.aws.aws_ec2
     ```
      
 2. **Create Dynamic Inventory File (`aws_ec2.yml`)**
