@@ -98,6 +98,10 @@ filters:
   tag:Name:
     - dev
 ```
+> Test with group
+```bash
+ansible tag_Name_dev -m ping
+```
 
 - **Result:** This creates a group called `tag_Name_dev` and a custom group called development.
 - **Verify:** Run `ansible-inventory --list` to see the new group structure.
