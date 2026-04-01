@@ -20,7 +20,6 @@ sudo yum install python3-pip -y
 pip3 install boto3
 ansible-galaxy collection install amazon.aws
 ```
-*Use code with caution.*
 
 ## Phase 3: Configure Ansible
 1. **Edit `ansible.cfg`:**
@@ -58,7 +57,6 @@ ansible-galaxy collection install amazon.aws
 ansible-inventory -i aws_ec2.yml --graph
 ansible all -m ping
 ```
-*Use code with caution.*
 
 2. **Deploy Playbook**
 Create `deploy.yml` to install a web server:
@@ -98,12 +96,46 @@ filters:
     - dev
 ```
 
-- **Result:** This creates a group called tag_Name_dev and a custom group called development.
-- **Verify:** Run ansible-inventory --list to see the new group structure.
+- **Result:** This creates a group called `tag_Name_dev` and a custom group called development.
+- **Verify:** Run `ansible-inventory --list` to see the new group structure.
 ---
 ### Summary of Results
 
 - **Dynamic Discovery:** Instances are automatically added to the inventory based on the `dev` tag.
 - **Automation:** Web server deployment is handled across all discovered nodes simultaneously.
 - **Scalability:** As you launch more "dev" instances, Ansible will pick them up without manual configuration.
+---
+## Tools and Their Functions
+
+1. **python3-pip & boto3**
+```yaml   
+- Installs the official AWS Python library that allows Ansible to "talk" to the AWS API.
+- When you run a dynamic inventory command, Ansible uses Boto3 in the background to "talk" to AWS.
+  It asks AWS for a list of instances, their IP addresses, and their tags. Without Boto3, Ansible cannot authenticate or
+  retrieve data from your AWS account.
+- Example: It retrieves the Private IP of your instance.
+
+pip3 install boto3
+
+```
+2. **ansible-galaxy**
+```yaml   
+- A command-line tool used to install community`s pre-built automation "collections" and "roles"
+- Example: Similar to an App Store for Ansible.
+
+ansible-galaxy
+```   
+3. **amazon.aws from ansible-galaxy Collection**
+```yaml   
+- Installs the specific `aws_ec2` plugin needed to identify and manage AWS resources.
+- Example: It allows you to use `plugin: amazon.aws.aws_ec2` in your config.
+
+ansible-galaxy collection install amazon.aws
+```
+4. **Dynamic Discovery**
+```yaml   
+- Together, these tools automatically find your servers so you don't have to type IP addresses manually.
+- Example: Finding all instances with the tag `Name: dev`.
+```
+
 ---
