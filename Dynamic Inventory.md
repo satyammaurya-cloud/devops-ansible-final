@@ -55,6 +55,7 @@ ansible-galaxy collection install amazon.aws
 
 ## Phase 4: Verification & Execution
 1. **Test Connectivity**
+> Go to ansible directory and apply below command `cd /etc/ansible`
 ```bash
 ansible-inventory -i aws_ec2.yml --graph
 ansible all -m ping
