@@ -65,7 +65,7 @@ ansible all -m ping
 Create `deploy.yml` to install a web server:
 ```yaml
 - name: install webserver
-  hosts: all
+  hosts: all   #tag_Name_dev
   become: yes
   tasks:
     - yum:
@@ -110,6 +110,7 @@ groups:
 ```bash
 ansible tag_Name_dev -m ping     # Ping only dev nodes
 ansible tag_Name_test -m ping    # Ping only test nodes
+ansible all -m ping              # from all nodes
 ```
 
 - **Result:** This creates a group called `tag_Name_dev` and a custom group called development.
