@@ -50,23 +50,19 @@ ansible -i inventory all -m ping
 ```bash
 ansible -i inventory all -m stat -a "path=/var/www/html"
 ```
-##### Yum or Apt Module (for package management)
-```bash
-ansible -i inventory all -m yum -a "name=httpd state=present"    
-```
 ##### User Module (manage users)
 ```bash
-gansible -i inventory all -m user -a "name=naresh" -b 
+ansible -i inventory all -m user -a "name=john" -b 
 ```
 ##### Setup Module (gather system facts)
 ```bash
-gansible -i inventory all -m setup 
+ansible -i inventory all -m setup 
 ```
 ##### File Module (manage files/directories)
 ```bash
-gansible -i inventory all -m file -a "name=demo state=touch"
+ansible -i inventory all -m file -a "name=demo state=touch"
 ```
-##### Package States
+##### Package States-Yum or Apt Module (for package management)
 
 ```yaml
 (name = httpd install
