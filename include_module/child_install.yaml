@@ -1,5 +1,5 @@
 ---
-- name: install with with include module
+- name: install with include module
   yum:
     name: httpd
     state: latest
